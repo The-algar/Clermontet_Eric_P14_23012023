@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import Table from '../../components/ListEmployee'
+import Table from '../../components/table'
 import Input from '../../components/CreateEmployee/Input'
 import HeaderTabs from '../../components/CreateEmployee/HeaderTabs'
-import { InputLabel } from '../../components/CreateEmployee/Input'
+import Entries from '../../components/table/Entries'
+import EntriesDisplayed from '../../components/table/EntriesDisplayed'
+import Pagination from '../../components/table/Pagination'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
@@ -11,33 +13,33 @@ import { useSelector } from 'react-redux'
 const EmployeesList = () => {
   const [search, setSearch] = useState('')
   const [entries, setEntries] = useState(10)
+  const [page, setPage] = useState(1)
 
   const employees = useSelector((state) => state.getEmployees.employees)
   const length = employees.length
 
+  const division = employees.length / entries
+  const lastDataOnPage = page * entries
+  const firstDataOnPage = lastDataOnPage - entries
+  const fullPages = Math.trunc(division)
+  const pageCount = Math.ceil(division)
+  let pageCountRange = []
+  for (let i = 0; i < pageCount; i++) {
+    pageCountRange.push(i)
+  }
+  const employeesToDisplay = employees.slice(firstDataOnPage, lastDataOnPage)
+  const handleChange = (e) => {
+    setEntries(e.target.value)
+    setPage(1)
+  }
+  
   return (
     <Main>
       <HeaderTabs />
       <h2 className="sr-only">Current employees</h2>
-      <section>
+            <section>
         <FiltersWrapper>
-          <Entries>
-            <InputLabel htmlFor="entries">Show</InputLabel>
-            <SelectStyle
-              name="entries"
-              id="entries"
-              value={entries}
-              onChange={(e) => {
-                setEntries(e.target.value)
-              }}
-            >
-              <option>10</option>
-              <option>25</option>
-              <option>50</option>
-              <option>100</option>
-            </SelectStyle>
-            <EntriesText> entries</EntriesText>
-          </Entries>
+          <Entries value={entries} onChange={handleChange} />
           <Search>
             <Input // Search
               direction={'row'}
@@ -52,20 +54,20 @@ const EmployeesList = () => {
           </Search>
         </FiltersWrapper>
 
-        {/* <Table />
-         */}
-         
-        {length > 0 && <Table employees={employees} />}
+        {length > 0 && <Table employees={employeesToDisplay} />}
+
         <FiltersWrapper>
-          <p>
-            Showing 1 to {entries} of {length} entries
-          </p>
-          <div>
-            <span>Previous</span>
-            <Button>1</Button>
-            <Button>2</Button>
-            <span>Next</span>
-          </div>
+
+          <EntriesDisplayed
+            page={page}
+            fullPages={fullPages}
+            firstDataOnPage={firstDataOnPage}
+            lastDataOnPage={lastDataOnPage}
+            length={length}
+          />
+
+          <Pagination setPage={setPage} page={page} pageCount={pageCount} pageCountRange={pageCountRange} />
+        
         </FiltersWrapper>
       </section>
     </Main>
@@ -85,49 +87,17 @@ const Main = styled.main`
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0px 5px 20px rgb(100, 100, 100, 0.3);
 `
-const SelectStyle = styled.select`
-  padding: 5px;
-  border-radius: 0.25rem;
-  border: 1px inset ${colors.secondary};
-  background-color: ${colors.backgroundLight};
-  &:hover,
-  &:focus {
-    background-color: rgba(153, 153, 0, 0.2);
-  }
-  &:focus-visible {
-    outline: none;
-  }
-  @media (max-width: 575px) {
-    width: 100%;
-  }
-`
-const FiltersWrapper = styled.section`
+export const FiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 0;
 `
-const Entries = styled.div`
-  display: flex;
-  align-items: center;
-  & > label {
-      font-weight: normal;
-  }
-`
-const Search = styled.div`
+export const Search = styled.div`
   & > div {
     align-items: center;
     & > label {
       font-weight: normal;
     }
   }
-`
-const EntriesText = styled.p`
-  padding-left: .4rem;
-`
-const Button = styled.button`
-  text-align: center;
-  width: 2rem;
-  height: 2rem;
-  margin: 0.4rem;
-  border-radius: .5rem;
 `

@@ -8,7 +8,7 @@ import colors from '../../utils/style/colors'
  * @param {string} string 
  * @returns {string}
  */
- function capitalizeFirstLowercaseRest(string) {
+ export function capitalizeFirstLowercaseRest(string) {
   if (!string) {
     return '';
   }
@@ -89,7 +89,7 @@ export const InputStyle = styled.input`
   font-size: .9rem;
   height: auto;
   &:hover, &:focus {
-    background-color: rgba(153, 153, 0, 0.2);
+    background-color: rgba(206, 218, 151, 0.2);
   }
   &:focus-visible {
     outline: none;

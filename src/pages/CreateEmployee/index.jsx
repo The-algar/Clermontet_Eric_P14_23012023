@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import HeaderTabs from '../../components/CreateEmployee/HeaderTabs'
 import Input from '../../components/CreateEmployee/Input'
-import departments from '../../data/department'
+import departments from '../../data/departments'
 import states from '../../data/states'
-import { InputLabel, InputWrapper } from '../../components/CreateEmployee/Input'
 import { addAndGetEmployees } from '../../firebase/firebaseServices'
 import { useStore } from 'react-redux'
+import Select from '../../components/CreateEmployee/Select'
 import Modale from '../../components/Modale'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
@@ -17,11 +17,20 @@ const CreateEmployee = () => {
   const [startDate, setStartDate] = useState('')
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
-  const [state, setState] = useState('AL')
+  const [state, setState] = useState('')
   const [zipCode, setZipCode] = useState('')
-  const [department, setDepartment] = useState('sales')
+  const [department, setDepartment] = useState('')
 
-  const departmentSorted = departments.sort()
+  function sortDepartments(x, y) {
+    if (x.label < y.label) {
+      return -1
+    }
+    if (x.label > y.label) {
+      return 1
+    }
+    return 0
+  }
+  const departmentsSorted = departments.sort(sortDepartments)
   const USAStates = states
   const [modaleIsOpen, setModaleIsOpen] = useState(false)
 
@@ -141,25 +150,16 @@ const CreateEmployee = () => {
             />
           </DivInputWrapper>
 
-          <InputWrapper direction={'column'}>
-            <InputLabel htmlFor="state">State</InputLabel>
-            <SelectStyle
-              name="state"
-              id="state"
-              value={state}
-              onChange={(e) => {
-                setState(e.target.value)
-              }}
-            >
-              {USAStates.map((state, index) => {
-                return (
-                  <option key={index} value={state.value}>
-                    {state.label}
-                  </option>
-                )
-              })}
-            </SelectStyle>
-          </InputWrapper>
+          <Select
+            direction={'column'}
+            alignItems={'left'}
+            charAndId={'state'}
+            value={state}
+            onChange={(e) => {
+              setState(e.target.value)
+            }}
+            optionsList={USAStates}
+          />
 
           <DivInputZipWrapper>
             <Input // Zip Code
@@ -175,25 +175,17 @@ const CreateEmployee = () => {
           </DivInputZipWrapper>
         </FieldsetStyle>
 
-        <InputWrapper direction={'column'}>
-          <InputLabel htmlFor="department">Department</InputLabel>
-          <SelectStyle
-            name="department"
-            id="department"
-            value={department}
-            onChange={(e) => {
-              setDepartment(e.target.value)
-            }}
-          >
-            {departmentSorted.map((department, index) => {
-              return (
-                <option key={index} value={department.value}>
-                  {department.label}
-                </option>
-              )
-            })}
-          </SelectStyle>
-        </InputWrapper>
+        <Select
+          direction={'column'}
+          alignItems={'left'}
+          charAndId={'department'}
+          value={department}
+          onChange={(e) => {
+            setDepartment(e.target.value)
+          }}
+          optionsList={departmentsSorted}
+        />
+
         <DivButton>
           <InputButton type="submit" value="Save" />
           {modaleIsOpen && <Modale hideModale={closeModale} />}
@@ -299,22 +291,6 @@ const InputButton = styled.input`
   &:hover {
     background-color: ${colors.primary};
     box-shadow: 0px 5px 20px rgb(100, 100, 100, 0.3);
-  }
-  @media (max-width: 575px) {
-    width: 100%;
-  }
-`
-const SelectStyle = styled.select`
-  padding: 5px;
-  border-radius: 0.25rem;
-  border: 1px inset ${colors.background};
-  background-color: white;
-  &:hover,
-  &:focus {
-    background-color: rgba(153, 153, 0, 0.2);
-  }
-  &:focus-visible {
-    outline: none;
   }
   @media (max-width: 575px) {
     width: 100%;

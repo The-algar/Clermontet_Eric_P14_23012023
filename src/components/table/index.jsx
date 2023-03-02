@@ -1,33 +1,21 @@
 import React from 'react'
+import Sorts from './Sorts'
+import keys from '../../data/keys'
 import styled from 'styled-components'
-import Arrows from './Arrows'
-import colors from '../../utils/style/colors'
 
-const tableHead = [
-  'First Name',
-  'Last Name',
-  'Date of birth',
-  'Department',
-  'Start Date',
-  'Street',
-  'City',
-  'State',
-  'Zip Code',
-]
 
 const Table = ({ employees }) => {
-
   return (
     <TableContainer>
       <TableStyle>
         <thead>
           <TrHead>
-            {tableHead.map((element, index) => {
+            {keys.map((element, index) => {
               return (
                 <th key={index}>
                   <ThDiv>
-                    <p>{element}</p>
-                    <Arrows />
+                    <p>{element.name}</p>
+                    <Sorts id={element.id} />
                   </ThDiv>
                 </th>
               )
@@ -40,9 +28,9 @@ const Table = ({ employees }) => {
               <TBody key={id}>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
-                <td>{employee.dateOfBirth}</td>
-                <td>{employee.department}</td>
                 <td>{employee.startDate}</td>
+                <td>{employee.department}</td>
+                <td>{employee.dateOfBirth}</td>
                 <td>{employee.street}</td>
                 <td>{employee.city}</td>
                 <td>{employee.state}</td>
@@ -68,26 +56,28 @@ export const TrHead = styled.tr`
   & > th {
     padding: 0.4rem;
     vertical-align: middle;
-
+    white-space: nowrap;
   }
 `
-const TBodyContainer = styled.tbody`
+export const TBodyContainer = styled.tbody`
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 `
-const TBody = styled.tr`
+export const TBody = styled.tr`
   background-color: white;
   &:nth-child(even) {
-    background-color: ${colors.mainBgColor};
+    background-color: rgba(206, 218, 151, 0.5);
   }
   & > td {
     vertical-align: middle;
     font-weight: 300;
-    padding: .2rem .4rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 0.4rem;
+    line-height: 1.5rem;
+    white-space: nowrap;
+    ${'' /* max-width: 8rem; */}
   }
 `
-const ThDiv = styled.div`
+export const ThDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
