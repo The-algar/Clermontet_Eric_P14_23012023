@@ -38,7 +38,8 @@ import colors from '../../utils/style/colors'
  */
 
 const Input = ({ charAndId, inputType, direction, value, onChange, required }) => {
-let placeholder;
+
+  let placeholder;
   if (charAndId === 'first-name') {
     placeholder = "Enter your First Name";
   } else if (charAndId === "last-name") {

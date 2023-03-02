@@ -2,7 +2,7 @@ import React from 'react'
 import Sorts from './Sorts'
 import keys from '../../data/keys'
 import styled from 'styled-components'
-
+import colors from '../../utils/style/colors'
 
 const Table = ({ employees }) => {
   return (
@@ -54,7 +54,7 @@ export const TableStyle = styled.table`
 `
 export const TrHead = styled.tr`
   & > th {
-    padding: 0.4rem;
+    padding: .4rem .6rem;
     vertical-align: middle;
     white-space: nowrap;
   }
@@ -69,9 +69,10 @@ export const TBody = styled.tr`
     background-color: rgba(206, 218, 151, 0.5);
   }
   & > td {
+    border-left: 1px dotted ${colors.textLight};
     vertical-align: middle;
     font-weight: 300;
-    padding: 0.6rem 0.4rem;
+    padding: .6rem;
     line-height: 1.5rem;
     white-space: nowrap;
     ${'' /* max-width: 8rem; */}

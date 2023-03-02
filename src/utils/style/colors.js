@@ -5,6 +5,7 @@ const colors = {
   errorBtn: '#00bc77',
   text: '#000000', //typo
   negativeTxt: '#ffffff', //typo white
+  textLight: '#c0d3bf',
   mainBgColor: '#ceda97', //very light green
   background: '#eeeeee', //gris clair
   backgroundLight: '#FFFFFF', //blanc
