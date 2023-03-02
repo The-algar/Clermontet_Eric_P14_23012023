@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Error from './components/Error'
 import Home from './pages/Home'
 import CreateEmployee from './pages/CreateEmployee'
+import ListEmployee from './pages/ListEmployee'
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
         <Header />
         <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/create" element={<CreateEmployee />} />
-            {/* <Route path="/list" element={<ListEmployee />} /> */}
+            <Route path="/Create" element={<CreateEmployee />} />
+            <Route path="/List" element={<ListEmployee />} />
             <Route path="*" element={<Error />} />
         </Routes>
     </BrowserRouter>

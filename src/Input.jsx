@@ -22,7 +22,7 @@ import { InputLabel, InputStyle, InputWrapper } from "../styles/components/input
 /**
  * Input component to display input buttons
  * @name Input
- * @param {string} forAndId
+ * @param {string} charAndId
  * @param {string} inputType
  * @param {string} direction
  * @param {string} value
@@ -30,16 +30,16 @@ import { InputLabel, InputStyle, InputWrapper } from "../styles/components/input
  * @returns {?JSX}
  */
 
-const Input = ({ forAndId, inputType, direction, value, onChange }) => {
+const Input = ({ charAndId, inputType, direction, value, onChange }) => {
 
   return (
     <InputWrapper direction={direction}>
-      <InputLabel htmlFor={forAndId}>
-        {capitalizeFirstLetter(forAndId)}
+      <InputLabel htmlFor={charAndId}>
+        {capitalizeFirstLetter(charAndId)}
       </InputLabel>
       <InputStyle
         type={inputType}
-        id={forAndId}
+        id={charAndId}
         value={value}
         onChange={onChange}
       />
