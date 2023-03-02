@@ -2,23 +2,28 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
 /**
- * Function capitalizeFirstLowercaseRest to capitalize label's first letter
+ * Function capitalizeFirstLowercaseRest to capitalize label's first letter and lowercase the rest
  * @function
  * @name capitalizeFirstLowercaseRest
  * @param {string} string 
  * @returns {string}
  */
  function capitalizeFirstLowercaseRest(string) {
-  const regex = /-/gi 
-  const newString = string.replace(regex, ' ')
+  if (!string) {
+    return '';
+  }
+
+  const regex = /-/g;
+  const newString = string.replace(regex, ' ');
   return newString
     .toLowerCase()
     .split(' ')
-    .map(word => {
-      return word[0].toUpperCase() + word.substring(1)
+    .map((word) => {
+      return word[0].toUpperCase() + word.substr(1);
     })
-    .join(' ')
+    .join(' ');
 }
+
 
 /**
  * Input component to display input buttons
@@ -33,16 +38,16 @@ import colors from '../../utils/style/colors'
 
 const Input = ({ charAndId, inputType, direction, value, onChange }) => {
 let placeholder;
-  if (charAndId === 'first name') {
+  if (charAndId === 'first-name') {
     placeholder = "Enter your First Name";
-  } else if (charAndId === "last name") {
+  } else if (charAndId === "last-name") {
     placeholder = "Enter your Last Name";
   } else if (charAndId === "street") {
     placeholder = "Enter your Street";
   } else if (charAndId === "city") {
     placeholder = "Enter your City";
   } else if (charAndId === "zip-code") {
-    placeholder = "Enter your Zip Code";
+    placeholder = "Enter Zip Code";
   }
 
   return (
@@ -67,25 +72,25 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) => props.direction};
   justify-content: left;
-  margin-bottom: .5rem;
+  padding: .4rem 0;
 `
+
 export const InputLabel = styled.label`
   font-weight: bold;
-  padding: .5rem 0;
+  padding: .4rem .4rem .4rem 0;
+  color: ${colors.text};
 `
 export const InputStyle = styled.input`
-  padding: 5px;
+  font-style: italic;
+  padding: .5rem .35rem;
   border-radius: 0.25rem;
-  border: 2px inset ${colors.secondary};
-  background-color: white;
+  border: 1px inset ${colors.background};
+  font-size: .9rem;
+  height: auto;
   &:hover, &:focus {
-    background-color: rgba(188, 140, 242, 0.1);
+    background-color: rgba(153, 153, 0, 0.2);
   }
   &:focus-visible {
     outline: none;
-  }
-  ::placeholder {
-    color: gray;
-    font-style: italic;
   }
 `

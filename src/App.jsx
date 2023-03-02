@@ -6,9 +6,13 @@ import Error from './components/Error'
 import Home from './pages/Home'
 import CreateEmployee from './pages/CreateEmployee'
 import ListEmployee from './pages/ListEmployee'
+import { Provider } from 'react-redux'
+import { store } from './Redux/store/store'
 
 function App() {
   return (
+  <>
+    <Provider store={store}>
     <BrowserRouter>
       <GlobalStyle />
         <Header />
@@ -19,7 +23,9 @@ function App() {
             <Route path="*" element={<Error />} />
         </Routes>
     </BrowserRouter>
-  );
+  </Provider>
+  </>
+  )
 }
 
 export default App;

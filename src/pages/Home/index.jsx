@@ -3,6 +3,18 @@ import Logo from '../../assets/whLogo.png';
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
+export default function Home() {
+    return (
+        <Main>
+            <LoginCard>
+                <HpLogo src={Logo} alt="logo_wealth" />
+                <p>Welcome to  HRnet</p>
+            </LoginCard>
+            <Claim>This is our company's internal application to create and view employee records.</Claim>
+        </Main>
+    )
+}
+
 const Main = styled.main`
   display: flex;
   flex-direction: column;
@@ -36,15 +48,3 @@ const Claim = styled.h2`
     padding-top: 2rem;
     font-weight: bold;
 `
-
-export default function Home() {
-    return (
-        <Main>
-            <LoginCard>
-                <HpLogo src={Logo} alt="logo_wealth" />
-                <p>Welcome to  HRnet</p>
-            </LoginCard>
-            <Claim>This is our company's internal application to create and view employee records.</Claim>
-        </Main>
-    )
-};

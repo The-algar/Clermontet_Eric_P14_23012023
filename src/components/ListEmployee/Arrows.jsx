@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
-export const ArrowWrapper = styled.div`
+export const ArrowWrapper = styled.span`
   display: flex;
   flex-direction: column;
   padding: 0.4rem;
   & svg {
-    height: 0.6rem;
+    height: 0.4rem;
     padding: 0.1rem;
   }
 `
