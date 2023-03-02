@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import React from "react";
+import styled from "styled-components";
+import colors from "../../utils/style/colors";
 
-import TableBodyRow from './TableBodyRow'
-import TableHeadRow from './TableHeadRow'
+import TableBodyRow from "./TableBodyRow";
+import TableHeadRow from "./TableHeadRow";
 
 const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
   return (
@@ -20,7 +20,7 @@ const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
                     employeesToDisplay={employeesToDisplay}
                   />
                 </th>
-              )
+              );
             })}
           </TrHead>
         </thead>
@@ -33,26 +33,26 @@ const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
                   keysToDisplay={keysToDisplay}
                 />
               </TrBody>
-            )
+            );
           })}
         </TBody>
       </TableStyle>
     </TableContainer>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;
 
 const TableContainer = styled.div`
   overflow-x: auto;
-`
+`;
 const TableStyle = styled.table`
   width: 100%;
-`
+`;
 const TBody = styled.tbody`
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-`
+`;
 const TrBody = styled.tr`
   background-color: ${colors.backgroundLight};
 
@@ -63,18 +63,16 @@ const TrBody = styled.tr`
     border-left: 1px dotted ${colors.textLight};
     vertical-align: middle;
     font-weight: 300;
-    padding: .6rem;
+    padding: 0.6rem;
     line-height: 1.5rem;
     white-space: nowrap;
-    ${'' /* max-width: 8rem; */}
+    ${"" /* max-width: 8rem; */}
   }
-`
+`;
 const TrHead = styled.tr`
   & > th {
-    padding: .4rem .6rem;
+    padding: 0.4rem 0.6rem;
     vertical-align: middle;
     white-space: nowrap;
   }
-`
-
-
+`;

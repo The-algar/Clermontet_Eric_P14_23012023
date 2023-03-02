@@ -1,27 +1,27 @@
-import React from 'react'
-import { Routes, Route, BrowserRouter } from "react-router-dom"
-import Header from './components/Header'
-import { GlobalStyle } from './utils/style/GlobalStyle';
-import Home from './pages/Home'
-import { Main } from './pages/Home'
-import CreateEmployee from './pages/CreateEmployee'
-import ListEmployee from './pages/ListEmployee'
-import { useStore } from 'react-redux'
-import { useEffect } from 'react'
-import { getEmployees } from './firebase/firebaseServices'
-import Error from './components/Error'
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Header from "./components/Header";
+import { GlobalStyle } from "./utils/style/GlobalStyle";
+import Home from "./pages/Home";
+import { Main } from "./pages/Home";
+import CreateEmployee from "./pages/CreateEmployee";
+import ListEmployee from "./pages/ListEmployee";
+import { useStore } from "react-redux";
+import { useEffect } from "react";
+import { getEmployees } from "./firebase/firebaseServices";
+import Error from "./components/Error";
 
 export const App = () => {
-  const store = useStore()
+  const store = useStore();
 
   useEffect(() => {
-    getEmployees(store)
-  }, [store])
+    getEmployees(store);
+  }, [store]);
 
   return (
-  <>
-    <BrowserRouter>
-      <GlobalStyle />
+    <>
+      <BrowserRouter>
+        <GlobalStyle />
         <Header />
         <Main>
           <Routes>
@@ -31,9 +31,9 @@ export const App = () => {
             <Route path="*" element={<Error />} />
           </Routes>
         </Main>
-    </BrowserRouter>
-  </>
-  )
-}
+      </BrowserRouter>
+    </>
+  );
+};
 
 export default App;

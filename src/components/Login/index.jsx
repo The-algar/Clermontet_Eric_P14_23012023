@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import colors from "../../utils/style/colors";
 
 function LoginLogoutButton() {
-    // The useState hook is used to manage the state of the button. 
-    // the useState hook retrieves the isLoggedIn state from local storage using 
-    // localStorage.getItem('isLoggedIn'). If the value is 'true', the user is considered logged in, 
-    // otherwise they are not logged in.
+  // The useState hook is used to manage the state of the button.
+  // the useState hook retrieves the isLoggedIn state from local storage using
+  // localStorage.getItem('isLoggedIn'). If the value is 'true', the user is considered logged in,
+  // otherwise they are not logged in.
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem('isLoggedIn') === 'true'
+    localStorage.getItem("isLoggedIn") === "true"
   );
 
   // The useNavigate hook provides a way to programmatically navigate to different routes in a React Router-based application.
@@ -17,20 +17,22 @@ function LoginLogoutButton() {
 
   // I use the useEffect hook to store the 'isLoggedIn' state in local storage every time the state changes.
   useEffect(() => {
-    localStorage.setItem('isLoggedIn', isLoggedIn);
+    localStorage.setItem("isLoggedIn", isLoggedIn);
   }, [isLoggedIn]);
 
   return (
     <div>
-      <Button onClick={() => {
-        setIsLoggedIn(!isLoggedIn);
-        if (isLoggedIn) {
-          navigate('/');
-        } else {
-          navigate('/Create');
-        }
-      }}>
-        {isLoggedIn ? 'Logout' : 'Login'}
+      <Button
+        onClick={() => {
+          setIsLoggedIn(!isLoggedIn);
+          if (isLoggedIn) {
+            navigate("/");
+          } else {
+            navigate("/Create");
+          }
+        }}
+      >
+        {isLoggedIn ? "Logout" : "Login"}
       </Button>
       {isLoggedIn} {/* && <p>You are logged in</p> */}
     </div>
@@ -49,11 +51,10 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-              0 1px 5px 0 rgba(0, 0, 0, 0.12),
-              0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
-    &:hover {
-      background-color: ${colors.mainBgColor};
-    }
-`
+  &:hover {
+    background-color: ${colors.mainBgColor};
+  }
+`;

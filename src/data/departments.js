@@ -1,44 +1,44 @@
 const departments = [
   {
-    label: 'Sales',
-    value: 'Sales',
+    label: "Sales",
+    value: "Sales",
   },
   {
-    label: 'Marketing',
-    value: 'Marketing',
+    label: "Marketing",
+    value: "Marketing",
   },
   {
-    label: 'Engineering',
-    value: 'Engineering',
+    label: "Engineering",
+    value: "Engineering",
   },
   {
-    label: 'Human Resources',
-    value: 'Human Resources',
+    label: "Human Resources",
+    value: "Human Resources",
   },
   {
-    label: 'Legal',
-    value: 'Legal',
+    label: "Legal",
+    value: "Legal",
   },
   {
-    label: 'Internship',
-    value: 'Internship',
+    label: "Internship",
+    value: "Internship",
   },
   {
-    label: 'Research and Development',
-    value: 'Research and Development',
+    label: "Research and Development",
+    value: "Research and Development",
   },
   {
-    label: 'Product Management',
-    value: 'Product Management',
+    label: "Product Management",
+    value: "Product Management",
   },
   {
-    label: 'Training',
-    value: 'Training',
+    label: "Training",
+    value: "Training",
   },
   {
-    label: 'Accounting', 
-    value: 'Accounting',
+    label: "Accounting",
+    value: "Accounting",
   },
-]
+];
 
-export default departments
+export default departments;

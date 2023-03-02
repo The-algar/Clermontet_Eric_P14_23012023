@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import colors from './colors'
+import { createGlobalStyle } from "styled-components";
+import colors from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
 /* Styles principaux */
@@ -66,4 +66,4 @@ export const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  `
+  `;

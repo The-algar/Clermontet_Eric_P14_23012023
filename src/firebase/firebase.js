@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD9UA2HCTr6dDTRK3qFBRXoqUOgUBzrUlg",
@@ -18,13 +18,12 @@ const firebaseConfig = {
   databeseURL: process.env.REACT_APP_HRNET_DATABASE_URL,
   storageBucket: process.env.REACT_APP_HRNET_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_HRNET_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_HRNET_APP_ID
-}
+  appId: process.env.REACT_APP_HRNET_APP_ID,
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app)
-
+export const db = getFirestore(app);
 
 // const firebaseConfig = {
 //   apiKey: `${process.env.REACT_APP_HRNET_API_KEY}`,

@@ -1,23 +1,23 @@
-import React from 'react'
-import Input from '../CreateEmployee/Input'
-import styled from 'styled-components'
+import React from "react";
+import Input from "../CreateEmployee/Input";
+import styled from "styled-components";
 
 const Search = ({ value, onChange }) => {
   return (
     <SearchDiv>
       <Input // Search
-        direction={'row'}
-        charAndId={'search:'}
-        inputType={'search'}
+        direction={"row"}
+        charAndId={"search:"}
+        inputType={"search"}
         value={value}
         required={false}
         onChange={onChange}
       />
     </SearchDiv>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
 
 const SearchDiv = styled.div`
   & > div {
@@ -26,4 +26,4 @@ const SearchDiv = styled.div`
       font-weight: normal;
     }
   }
-`
+`;

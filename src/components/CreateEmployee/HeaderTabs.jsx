@@ -1,24 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import colors from '../../utils/style/colors'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import styled from "styled-components";
+import colors from "../../utils/style/colors";
+import { NavLink } from "react-router-dom";
 
 const HeaderTabs = () => {
   return (
     <div>
       <NavStyled>
-        <TabLink to="/Create">
-          Create Employee
-        </TabLink>
-        <TabLink to="/List">
-          List Employees
-        </TabLink>
+        <TabLink to="/Create">Create Employee</TabLink>
+        <TabLink to="/List">List Employees</TabLink>
       </NavStyled>
     </div>
-  )
-}
+  );
+};
 
-export default HeaderTabs
+export default HeaderTabs;
 
 export const NavStyled = styled.nav`
   display: grid;
@@ -26,7 +22,7 @@ export const NavStyled = styled.nav`
   max-width: 1440px;
   margin-top: 1.5rem;
   margin-bottom: 2.5rem;
-`
+`;
 export const TabLink = styled(NavLink)`
     display: flex;
     align-items: center;
@@ -53,4 +49,4 @@ export const TabLink = styled(NavLink)`
       background-color: ${colors.secondary}
     }
   }
-`
+`;

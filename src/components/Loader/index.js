@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactLoading from 'react-loading';
-import { PropTypes } from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import ReactLoading from "react-loading";
+import { PropTypes } from "prop-types";
+import styled from "styled-components";
 
 /**
  * Component displaying a Loader

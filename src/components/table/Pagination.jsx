@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import React from "react";
+import styled from "styled-components";
+import colors from "../../utils/style/colors";
 
 const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
   // console.log(page)
@@ -13,7 +13,7 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
       ) : (
         <ButtonText
           onClick={() => {
-            setPage(page - 1)
+            setPage(page - 1);
           }}
         >
           Previous
@@ -31,12 +31,12 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
               color="white"
               key={index + 1}
               onClick={(e) => {
-                setPage(index + 1)
+                setPage(index + 1);
               }}
             >
               {index + 1}
             </ButtonNumber>
-          )
+          );
         } else {
           return (
             <ButtonNumber
@@ -44,12 +44,12 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
               color={colors.text}
               key={index + 1}
               onClick={(e) => {
-                setPage(index + 1)
+                setPage(index + 1);
               }}
             >
               {index + 1}
             </ButtonNumber>
-          )
+          );
         }
       })}
 
@@ -58,21 +58,21 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
       ) : (
         <ButtonText
           onClick={(e) => {
-            setPage(page + 1)
+            setPage(page + 1);
           }}
         >
           Next
         </ButtonText>
       )}
     </DivPagination>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;
 
 export const DivPagination = styled.div`
   display: flex;
-`
+`;
 export const ButtonNumber = styled.button`
   font-size: 1.1rem;
   font-weight: bold;
@@ -88,7 +88,7 @@ export const ButtonNumber = styled.button`
     color: white;
   }
 }
-`
+`;
 export const ButtonText = styled.button`
   text-align: center;
   padding: .4rem;
@@ -97,10 +97,10 @@ export const ButtonText = styled.button`
     font-weight: bold;
   }
 }
-`
+`;
 export const TextNoButton = styled.p`
   display: flex;
   align-items: center;
   padding: 0.4rem;
   opacity: 0.4;
-`
+`;
