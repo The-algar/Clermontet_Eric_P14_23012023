@@ -7,7 +7,7 @@ const colors = {
   negativeTxt: '#ffffff', //typo white
   mainBgColor: '#ceda97', //very light green
   background: '#eeeeee', //gris clair
-  backgroundLight: '#FFFFFF',
+  backgroundLight: '#FFFFFF', //blanc
 }
 
 export default colors

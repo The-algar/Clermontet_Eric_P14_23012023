@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import HeaderTabs from '../../components/CreateEmployee/HeaderTabs'
 import Input from '../../components/CreateEmployee/Input'
-import departments from '../../datas/department'
-import states from '../../datas/states'
+import departments from '../../data/department'
+import states from '../../data/states'
 import { InputLabel, InputWrapper } from '../../components/CreateEmployee/Input'
-import { createNewEmployee } from '../../Redux/actions/newCreateEmployee'
+import { addAndGetEmployees } from '../../firebase/firebaseServices'
+import { useStore } from 'react-redux'
 import Modale from '../../components/Modale'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
@@ -17,39 +17,50 @@ const CreateEmployee = () => {
   const [startDate, setStartDate] = useState('')
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
+  const [state, setState] = useState('AL')
   const [zipCode, setZipCode] = useState('')
-  const [state, setState] = useState('')
-  const [department, setDepartment] = useState('')
+  const [department, setDepartment] = useState('sales')
 
   const departmentSorted = departments.sort()
-  console.log(departmentSorted);
   const USAStates = states
-
   const [modaleIsOpen, setModaleIsOpen] = useState(false)
+
+  const store = useStore()
+
+
   const closeModale = () => {
     setModaleIsOpen(false)
   }
 
-  const dispatch = useDispatch()
-
-  const employee = useSelector((state) => state.newEmployee.employee)
-  console.log(employee)
-  const newEmployee = {
-    firstName: firstName,
-    lastName: lastName,
-    dateOfBirth: dateOfBirth,
-    startDate: startDate,
-    street: street,
-    city: city,
-    state: state,
-    zipCode: zipCode,
-    department: department
+  const newEmployee = () => {
+    return {
+      firstName: firstName,
+      lastName: lastName,
+      dateOfBirth: dateOfBirth,
+      startDate: startDate,
+      street: street,
+      city: city,
+      state: state,
+      zipCode: zipCode,
+      department: department,
+    }
   }
-
+  const reset = () => {
+    setFirstName('')
+    setLastName('')
+    setDateOfBirth('')
+    setStartDate('')
+    setStreet('')
+    setCity('')
+    setState('AL')
+    setZipCode('')
+    setDepartment('Sales')
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(createNewEmployee(newEmployee))
+    addAndGetEmployees(store, newEmployee)
     setModaleIsOpen(true)
+    reset()
   }
   
   return (
@@ -135,14 +146,15 @@ const CreateEmployee = () => {
             <SelectStyle
               name="state"
               id="state"
+              value={state}
               onChange={(e) => {
                 setState(e.target.value)
               }}
             >
               {USAStates.map((state, index) => {
                 return (
-                  <option key={index} value={state.abbreviation}>
-                    {state.name}
+                  <option key={index} value={state.value}>
+                    {state.label}
                   </option>
                 )
               })}
@@ -168,14 +180,15 @@ const CreateEmployee = () => {
           <SelectStyle
             name="department"
             id="department"
+            value={department}
             onChange={(e) => {
               setDepartment(e.target.value)
             }}
           >
             {departmentSorted.map((department, index) => {
               return (
-                <option key={index} value={department.name}>
-                  {department.name}
+                <option key={index} value={department.value}>
+                  {department.label}
                 </option>
               )
             })}
@@ -183,6 +196,7 @@ const CreateEmployee = () => {
         </InputWrapper>
         <DivButton>
           <InputButton type="submit" value="Save" />
+          {modaleIsOpen && <Modale hideModale={closeModale} />}
         </DivButton>
       </Form>
 

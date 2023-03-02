@@ -6,16 +6,17 @@ import colors from '../../utils/style/colors'
 const tableHead = [
   'First Name',
   'Last Name',
-  'Start Date',
-  'Department',
   'Date of birth',
+  'Department',
+  'Start Date',
   'Street',
   'City',
   'State',
   'Zip Code',
 ]
 
-const Table = () => {
+const Table = ({ employees }) => {
+
   return (
     <TableContainer>
       <TableStyle>
@@ -34,50 +35,21 @@ const Table = () => {
           </TrHead>
         </thead>
         <TBodyContainer>
-          <TBody>
-            <td>Tony</td>
-            <td>Stark</td>
-            <td>01/02/2023</td>
-            <td>Sales</td>
-            <td>05/31/1982</td>
-            <td>02 avengers street</td>
-            <td>Nyc</td>
-            <td>New York</td>
-            <td>10001</td>
-          </TBody>
-          <TBody>
-            <td>Tony</td>
-            <td>Stark</td>
-            <td>01/02/2023</td>
-            <td>Sales</td>
-            <td>05/31/1982</td>
-            <td>02 avengers street</td>
-            <td>Nyc</td>
-            <td>New York</td>
-            <td>10001</td>
-          </TBody>
-          <TBody>
-            <td>Tony</td>
-            <td>Stark</td>
-            <td>01/02/2023</td>
-            <td>Sales</td>
-            <td>05/31/1982</td>
-            <td>02 avengers street</td>
-            <td>Nyc</td>
-            <td>New York</td>
-            <td>10001</td>
-          </TBody>
-          <TBody>
-            <td>Tony</td>
-            <td>Stark</td>
-            <td>01/02/2023</td>
-            <td>Sales</td>
-            <td>05/31/1982</td>
-            <td>02 avengers street</td>
-            <td>Nyc</td>
-            <td>New York</td>
-            <td>10001</td>
-          </TBody>
+          {employees.map((employee, id) => {
+            return (
+              <TBody key={id}>
+                <td>{employee.firstName}</td>
+                <td>{employee.lastName}</td>
+                <td>{employee.dateOfBirth}</td>
+                <td>{employee.department}</td>
+                <td>{employee.startDate}</td>
+                <td>{employee.street}</td>
+                <td>{employee.city}</td>
+                <td>{employee.state}</td>
+                <td>{employee.zipCode}</td>
+              </TBody>
+            )
+          })}
         </TBodyContainer>
       </TableStyle>
     </TableContainer>

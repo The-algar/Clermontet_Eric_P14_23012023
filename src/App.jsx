@@ -6,13 +6,19 @@ import Error from './components/Error'
 import Home from './pages/Home'
 import CreateEmployee from './pages/CreateEmployee'
 import ListEmployee from './pages/ListEmployee'
-import { Provider } from 'react-redux'
-import { store } from './Redux/store/store'
+import { useStore } from 'react-redux'
+import { useEffect } from 'react'
+import { getEmployees } from './firebase/firebaseServices'
 
-function App() {
+export const App = () => {
+  const store = useStore()
+
+  useEffect(() => {
+    getEmployees(store)
+  }, [store])
+
   return (
   <>
-    <Provider store={store}>
     <BrowserRouter>
       <GlobalStyle />
         <Header />
@@ -23,7 +29,6 @@ function App() {
             <Route path="*" element={<Error />} />
         </Routes>
     </BrowserRouter>
-  </Provider>
   </>
   )
 }

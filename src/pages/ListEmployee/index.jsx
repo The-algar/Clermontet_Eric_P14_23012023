@@ -6,9 +6,15 @@ import { InputLabel } from '../../components/CreateEmployee/Input'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
+import { useSelector } from 'react-redux'
 
-const ListEmployees = () => {
+const EmployeesList = () => {
   const [search, setSearch] = useState('')
+  const [entries, setEntries] = useState(10)
+
+  const employees = useSelector((state) => state.getEmployees.employees)
+  const length = employees.length
+
   return (
     <Main>
       <HeaderTabs />
@@ -17,7 +23,14 @@ const ListEmployees = () => {
         <FiltersWrapper>
           <Entries>
             <InputLabel htmlFor="entries">Show</InputLabel>
-            <SelectStyle name="entries" id="entries">
+            <SelectStyle
+              name="entries"
+              id="entries"
+              value={entries}
+              onChange={(e) => {
+                setEntries(e.target.value)
+              }}
+            >
               <option>10</option>
               <option>25</option>
               <option>50</option>
@@ -38,9 +51,15 @@ const ListEmployees = () => {
             />
           </Search>
         </FiltersWrapper>
-        <Table />
+
+        {/* <Table />
+         */}
+         
+        {length > 0 && <Table employees={employees} />}
         <FiltersWrapper>
-          <p>Showing 1 to 10 of 11 entries</p>
+          <p>
+            Showing 1 to {entries} of {length} entries
+          </p>
           <div>
             <span>Previous</span>
             <Button>1</Button>
@@ -53,7 +72,7 @@ const ListEmployees = () => {
   )
 }
 
-export default ListEmployees
+export default EmployeesList
 
 const Main = styled.main`
   background-color: ${colors.background};

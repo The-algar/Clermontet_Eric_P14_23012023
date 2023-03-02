@@ -13,15 +13,15 @@ import colors from '../../utils/style/colors'
     return '';
   }
 
-  const regex = /-/g;
-  const newString = string.replace(regex, ' ');
+  const regex = /-/gi 
+  const newString = string.replace(regex, ' ')
   return newString
     .toLowerCase()
     .split(' ')
-    .map((word) => {
-      return word[0].toUpperCase() + word.substr(1);
+    .map(word => {
+      return word[0].toUpperCase() + word.substring(1)
     })
-    .join(' ');
+    .join(' ')
 }
 
 
@@ -33,10 +33,11 @@ import colors from '../../utils/style/colors'
  * @param {string} direction
  * @param {string} value
  * @param {string} onChange
+ * @param {string} required
  * @returns {?JSX}
  */
 
-const Input = ({ charAndId, inputType, direction, value, onChange }) => {
+const Input = ({ charAndId, inputType, direction, value, onChange, required }) => {
 let placeholder;
   if (charAndId === 'first-name') {
     placeholder = "Enter your First Name";
@@ -61,11 +62,11 @@ let placeholder;
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        required={required}
       />
     </InputWrapper>
   )
 }
-
 export default Input
 
 export const InputWrapper = styled.div`
