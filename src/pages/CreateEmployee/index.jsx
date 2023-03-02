@@ -204,9 +204,9 @@ export default CreateEmployee
 const Main = styled.main`
   background-color: ${colors.background};
   min-width: 1440px;
-  height: 100vh;
-  margin: auto;
-  margin-top: 2.5rem;
+  // height: 100vh;
+  // margin: auto;
+  // margin-top: 2.5rem;
   line-height: 1;
   padding: 1rem 1.5rem;
   border: 1px inset ${colors.secondary};

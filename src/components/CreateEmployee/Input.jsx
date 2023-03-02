@@ -14,7 +14,7 @@ import colors from '../../utils/style/colors'
  */
 
 const Input = ({ charAndId, inputType, direction, value, onChange, required,}) => {
-  
+
   let placeholder;
   if (charAndId === 'first-name') {
     placeholder = "Enter your First Name";
@@ -27,7 +27,7 @@ const Input = ({ charAndId, inputType, direction, value, onChange, required,}) =
   } else if (charAndId === "zip-code") {
     placeholder = "Enter Zip Code";
   }
-
+  
   return (
     <InputWrapper direction={direction}>
       <InputLabel htmlFor={charAndId}>

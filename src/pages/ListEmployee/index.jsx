@@ -30,10 +30,10 @@ const EmployeesList = () => {
 
 export default EmployeesList
 
-const Main = styled.main`
+export const Main = styled.main`
   background-color: ${colors.background};
   min-width: 1440px;
-  min-height: 100vh;
+  // height: 100%;
   margin: auto;
   margin-top: 2.5rem;
   line-height: 1;

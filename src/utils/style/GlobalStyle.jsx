@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${colors.background};
     // max-width: 1440px;
     // height: 100%;
-    overflow-y: hidden;
+    // overflow-y: hidden;
     width: 100vw;
     margin: auto;
     // padding: 0 7%;

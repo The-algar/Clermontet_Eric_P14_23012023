@@ -5,27 +5,29 @@ import colors from '../../utils/style/colors'
 
 export default function Home() {
     return (
-        <Main>
+        <>
             <LoginCard>
                 <HpLogo src={Logo} alt="logo_wealth" />
                 <p>Welcome to  HRnet</p>
             </LoginCard>
             <Claim>This is our company's internal application to create and view employee records.</Claim>
-        </Main>
+        </>
     )
 }
 
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 100vh;
+  // justify-content: center;
   align-items: center;
-  height: 100vh;
-  padding: 1rem 1.5rem;
+  align-content: center;
+  // // height: 100vh;
+  padding: 5rem 1.5rem;
   background-color: ${colors.mainBgColor};
-  @media (max-width: 425px) {
-    min-width: 400px !important;
-  }
+  // @media (max-width: 425px) {
+  //   min-width: 400px !important;
+  // }
 `
 const LoginCard = styled.div`
     display: flex;

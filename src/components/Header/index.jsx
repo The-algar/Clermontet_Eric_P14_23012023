@@ -32,6 +32,7 @@ export default function Header() {
 
 const HeaderWrapper = styled.header`
   background-color: ${colors.primary};
+  padding: 2rem;
   z-index: 2;
   box-shadow: 0px 5px 20px rgb(100, 100, 100, 0.3);
   min-width: 450px;
@@ -41,14 +42,18 @@ const NavContainer = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 1rem 1.5rem;
   font-family: 'Alegreya Sans SC';
     @media screen and (max-width: 768px) {
     flex-direction: column;
+    gap: 1.5rem;
       & p {
         padding-top: 1rem;
       }
     }
+    @media screen and (max-width: 450px) {
+        gap: 1.5rem;
+      }
   `
 const WHLogoImage = styled.img`
     display: flex;
