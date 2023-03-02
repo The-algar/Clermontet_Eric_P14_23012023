@@ -16,39 +16,32 @@ import colors from "../../utils/style/colors";
  * @returns {?JSX}
  */
 
-const Input = ({
-  charAndId,
-  inputType,
-  direction,
-  value,
-  onChange,
-  required,
-}) => {
+const Input = (props) => {
   let placeholder;
-  if (charAndId === "first-name") {
+  if (props.charAndId === "first-name") {
     placeholder = "Enter your First Name";
-  } else if (charAndId === "last-name") {
+  } else if (props.charAndId === "last-name") {
     placeholder = "Enter your Last Name";
-  } else if (charAndId === "street") {
+  } else if (props.charAndId === "street") {
     placeholder = "Enter your Street";
-  } else if (charAndId === "city") {
+  } else if (props.charAndId === "city") {
     placeholder = "Enter your City";
-  } else if (charAndId === "zip-code") {
+  } else if (props.charAndId === "zip-code") {
     placeholder = "Enter Zip Code";
   }
 
   return (
-    <InputWrapper direction={direction}>
-      <InputLabel htmlFor={charAndId}>
-        {capitalizeFirstLowercaseRest(charAndId)}
+    <InputWrapper direction={props.direction}>
+      <InputLabel htmlFor={props.charAndId}>
+        {capitalizeFirstLowercaseRest(props.charAndId)}
       </InputLabel>
       <InputStyle
-        type={inputType}
-        id={charAndId}
-        value={value}
-        onChange={onChange}
+        type={props.inputType}
+        id={props.charAndId}
+        value={props.value}
+        onChange={props.onChange}
         placeholder={placeholder}
-        required={required}
+        required={props.required}
       />
     </InputWrapper>
   );
@@ -78,6 +71,7 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) => props.direction};
   justify-content: left;
+  align-items: ${(props) => props.direction};
   padding: 0.4rem 0;
 `;
 

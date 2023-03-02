@@ -12,9 +12,9 @@ import PropTypes from 'prop-types';
  * @returns {?JSX}
  */
 
-const TableBodyRow = ({ employee, keysToDisplay }) => {
-  return keysToDisplay.map((el, index) => (
-    <td key={index}>{employee[el.id]}</td>
+const TableBodyRow = (props) => {
+  return props.keysToDisplay.map((el, index) => (
+    <td key={index}>{props.employee[el.id]}</td>
   ));
 };
 

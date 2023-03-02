@@ -14,16 +14,16 @@ import styled from "styled-components";
  * @returns {?JSX}
  */
 
-const Search = ({ value, onChange }) => {
+const Search = (props) => {
   return (
     <SearchDiv>
       <Input // Search
         direction={"row"}
         charAndId={"search:"}
         inputType={"search"}
-        value={value}
+        value={props.value}
         required={false}
-        onChange={onChange}
+        onChange={props.onChange}
       />
     </SearchDiv>
   );

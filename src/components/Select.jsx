@@ -18,26 +18,19 @@ import colors from "../utils/style/colors";
  * @returns {?JSX}
  */
 
-const Select = ({
-  direction,
-  alignItems,
-  charAndId,
-  value,
-  onChange,
-  optionsList,
-}) => {
+const Select = (props) => {
   return (
-    <InputWrapper direction={direction} alignItems={alignItems}>
-      <InputLabel htmlFor={charAndId}>
-        {capitalizeFirstLowercaseRest(charAndId)}
+    <InputWrapper direction={props.direction} alignItems={props.alignItems}>
+      <InputLabel htmlFor={props.charAndId}>
+        {capitalizeFirstLowercaseRest(props.charAndId)}
       </InputLabel>
       <SelectStyle
-        name={charAndId}
-        id={charAndId}
-        value={value}
-        onChange={onChange}
+        name={props.charAndId}
+        id={props.charAndId}
+        value={props.value}
+        onChange={props.onChange}
       >
-        {optionsList.map((option, index) => {
+        {props.optionsList.map((option, index) => {
           return (
             <option key={index} value={option.value}>
               {option.label}

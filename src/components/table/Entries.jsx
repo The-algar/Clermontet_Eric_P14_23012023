@@ -14,16 +14,16 @@ import Select from "../Select";
 
 // JSX // _________________________________________________________________
 
-const Entries = ({ value, onChange, entriesNumber }) => {
+const Entries = (props) => {
   return (
     <EntriesStyle>
       <Select
         direction={"row"}
         alignItems={"center"}
         charAndId={"show"}
-        value={value}
-        onChange={onChange}
-        optionsList={entriesNumber}
+        value={props.value}
+        onChange={props.onChange}
+        optionsList={props.entriesNumber}
       />
       <EntriesText>entries</EntriesText>
     </EntriesStyle>

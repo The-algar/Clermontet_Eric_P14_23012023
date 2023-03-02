@@ -12,28 +12,28 @@ import colors from "../../utils/style/colors";
  * @returns {?JSX}
  */
 
-const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
+const Pagination = (props) => {
   // console.log(page)
   // console.log(pageCount)
   // console.log(pageCountRange)
   return (
     <DivPagination>
-      {page === 1 ? (
+      {props.page === 1 ? (
         <TextNoButton>Previous</TextNoButton>
       ) : (
         <ButtonText
           onClick={() => {
-            setPage(page - 1);
+            props.setPage(props.page - 1);
           }}
         >
           Previous
         </ButtonText>
       )}
 
-      {pageCountRange.map((index) => {
+      {props.pageCountRange.map((index) => {
         if (
-          page === pageCountRange[index + 1] ||
-          page - 1 === pageCountRange[index]
+          props.page === props.pageCountRange[index + 1] ||
+          props.page - 1 === props.pageCountRange[index]
         ) {
           return (
             <ButtonNumber
@@ -41,7 +41,7 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
               color="white"
               key={index + 1}
               onClick={(e) => {
-                setPage(index + 1);
+                props.setPage(index + 1);
               }}
             >
               {index + 1}
@@ -54,7 +54,7 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
               color={colors.text}
               key={index + 1}
               onClick={(e) => {
-                setPage(index + 1);
+                props.setPage(index + 1);
               }}
             >
               {index + 1}
@@ -63,12 +63,12 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
         }
       })}
 
-      {page === pageCount ? (
+      {props.page === props.pageCount ? (
         <TextNoButton>Next</TextNoButton>
       ) : (
         <ButtonText
           onClick={(e) => {
-            setPage(page + 1);
+            props.setPage(props.page + 1);
           }}
         >
           Next
@@ -104,7 +104,7 @@ export const ButtonNumber = styled.button`
   height: 2rem;
   margin: 0.4rem;
   border-radius: .5rem;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.mainBgColor};
   color: ${(props) => props.color};
   &:hover {
     background-color: ${colors.secondary};

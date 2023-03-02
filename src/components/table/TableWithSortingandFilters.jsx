@@ -22,12 +22,12 @@ import colors from "../../utils/style/colors";
  * @returns {?JSX}
  */
 
-const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay }) => {
+const TableWithSortingandFilters = (props) => {
   const [search, setSearch] = useState("");
   const [entries, setEntries] = useState(10);
   const [page, setPage] = useState(1);
 
-  const employeesArr = Array.from(list);
+  const employeesArr = Array.from(props.list);
 
   const employeesArrValues = employeesArr.map((el) => {
     const valuesWithoutId = { ...el };
@@ -47,7 +47,7 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay }) => {
   }
 
   if (search === "") {
-    employeesMatchSearch = list;
+    employeesMatchSearch = props.list;
   }
 
   const length = employeesMatchSearch.length;
@@ -81,7 +81,7 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay }) => {
         <Entries
           value={entries}
           onChange={handleChangeEntries}
-          entriesNumber={entriesNumber}
+          entriesNumber={props.entriesNumber}
         />
         <Search value={search} onChange={handleChangeSearch} />
       </FiltersWrapper>
@@ -89,8 +89,8 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay }) => {
       {length !== 0 ? (
         <Table
           employeesToDisplay={employeesToDisplay}
-          list={list}
-          keysToDisplay={keysToDisplay}
+          list={props.list}
+          keysToDisplay={props.keysToDisplay}
         />
       ) : (
         <NoData>No data available in table</NoData>

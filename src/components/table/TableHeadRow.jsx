@@ -15,14 +15,14 @@ import styled from "styled-components";
  * @returns {?JSX}
  */
 
-const TableHeadRow = ({ element, list, employeesToDisplay }) => {
+const TableHeadRow = (props) => {
   return (
     <ThDiv>
-      <p>{element.name}</p>
+      <p>{props.element.name}</p>
       <Sorts
-        id={element.id}
-        list={list}
-        employeesToDisplay={employeesToDisplay}
+        id={props.element.id}
+        list={props.list}
+        employeesToDisplay={props.employeesToDisplay}
       />
     </ThDiv>
   );

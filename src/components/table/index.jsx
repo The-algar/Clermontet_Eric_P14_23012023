@@ -17,19 +17,19 @@ import TableHeadRow from "./TableHeadRow";
  * @returns {?JSX}
  */
 
-const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
+const Table = (props) => {
   return (
     <TableContainer>
       <TableStyle>
         <thead>
           <TrHead>
-            {keysToDisplay.map((element, index) => {
+            {props.keysToDisplay.map((element, index) => {
               return (
                 <th key={index}>
                   <TableHeadRow
                     element={element}
-                    list={list}
-                    employeesToDisplay={employeesToDisplay}
+                    list={props.list}
+                    employeesToDisplay={props.employeesToDisplay}
                   />
                 </th>
               );
@@ -37,12 +37,12 @@ const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
           </TrHead>
         </thead>
         <TBody>
-          {employeesToDisplay.map((employee, index) => {
+          {props.employeesToDisplay.map((employee, index) => {
             return (
               <TrBody key={index}>
                 <TableBodyRow
                   employee={employee}
-                  keysToDisplay={keysToDisplay}
+                  keysToDisplay={props.keysToDisplay}
                 />
               </TrBody>
             );

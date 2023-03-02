@@ -20,33 +20,33 @@ import colors from "../../utils/style/colors";
  * @returns {?JSX}
  */
 
-const Sorts = ({ id, list }) => {
+const Sorts = (props) => {
   const dispatch = useDispatch();
 
   const handleClickUp = (e) => {
     e.preventDefault();
     const fullId = e.target.id;
     const id = fullId.split("-")[0];
-    const newEmmployeesList = Array.from(list).sort(dynamicSortUp(`${id}`));
+    const newEmmployeesList = Array.from(props.list).sort(dynamicSortUp(`${id}`));
     dispatch(employeesListSuccess(newEmmployeesList));
   };
   const handleClickDown = (e) => {
     e.preventDefault();
     const fullId = e.target.id;
     const id = fullId.split("-")[0];
-    const newEmmployeesList = Array.from(list).sort(dynamicSortDown(`${id}`));
+    const newEmmployeesList = Array.from(props.list).sort(dynamicSortDown(`${id}`));
     dispatch(employeesListSuccess(newEmmployeesList));
   };
 
   return (
-    <IconsDiv id={id}>
+    <IconsDiv id={props.id}>
       <IconButton
-        id={`${id}-iconUp`}
+        id={`${props.id}-iconUp`}
         className="fas fa-caret-up"
         onClick={handleClickUp}
       ></IconButton>
       <IconButton
-        id={`${id}-iconDown`}
+        id={`${props.id}-iconDown`}
         className="fas fa-caret-down"
         onClick={handleClickDown}
       ></IconButton>

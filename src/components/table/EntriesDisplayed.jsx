@@ -14,24 +14,18 @@ import colors from "../../utils/style/colors";
 
 // JSX // _________________________________________________________________
 
-const EntriesDisplayed = ({
-  page,
-  fullPages,
-  firstDataOnPage,
-  lastDataOnPage,
-  length,
-}) => {
+const EntriesDisplayed = (props) => {
   return (
     <div>
-      {page > fullPages ? (
+      {props.page > props.fullPages ? (
         <p>
-          Showing <Span>{firstDataOnPage + 1}</Span> to <Span>{length}</Span> of{" "}
-          <Span>{length}</Span> entries
+          Showing <Span>{props.firstDataOnPage + 1}</Span> to <Span>{props.length}</Span> of{" "}
+          <Span>{props.length}</Span> entries
         </p>
       ) : (
         <p>
-          Showing <Span>{firstDataOnPage + 1}</Span> to{" "}
-          <Span>{lastDataOnPage}</Span> of <Span>{length}</Span> entries
+          Showing <Span>{props.firstDataOnPage + 1}</Span> to{" "}
+          <Span>{props.lastDataOnPage}</Span> of <Span>{props.length}</Span> entries
         </p>
       )}
     </div>
