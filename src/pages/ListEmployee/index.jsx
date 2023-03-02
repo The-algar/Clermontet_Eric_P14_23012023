@@ -1,4 +1,6 @@
-import React from "react";
+// IMPORTS // ______________________________________________________________
+
+import React from 'react';
 import { useSelector } from "react-redux";
 import HeaderTabs from "../../components/CreateEmployee/HeaderTabs";
 import TableWithSortingandFilters from "../../components/table/TableWithSortingandFilters";
@@ -6,6 +8,14 @@ import entriesQuantity from "../../data/entriesQuantity";
 import keys from "../../data/keys";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
+
+// JSX // _________________________________________________________________
+
+/**
+ * EmployeesList component to display Hrnet's list of employees tab
+ * @name ListEmployee
+ * @returns {?JSX}
+ */
 
 const EmployeesList = () => {
   let data;
@@ -31,7 +41,11 @@ const EmployeesList = () => {
   );
 };
 
+// EXPORT // ______________________________________________________________
+
 export default EmployeesList;
+
+// CSS // _________________________________________________________________
 
 export const Main = styled.main`
   background-color: ${colors.background};

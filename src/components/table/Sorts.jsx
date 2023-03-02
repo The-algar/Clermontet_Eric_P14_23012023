@@ -1,10 +1,24 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+// IMPORTS // ______________________________________________________________
+
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
+// import functions 
 import { dynamicSortDown } from "../../utils/dynamicSortDown";
 import { dynamicSortUp } from "../../utils/dynamicSortUp";
+// Redux actions' import
 import { employeesListSuccess } from "../../Redux/actions/actionGetEmployees";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
+
+// JSX // _________________________________________________________________
+
+/**
+ * A Sorting component sorts data based on user preferences.
+ * @name Sorts
+ * @param {object} props 
+ * @returns {?JSX}
+ */
 
 const Sorts = ({ id, list }) => {
   const dispatch = useDispatch();
@@ -40,7 +54,18 @@ const Sorts = ({ id, list }) => {
   );
 };
 
-export default Sorts;
+// PROPTYPES // ___________________________________________________________
+
+Sorts.propTypes = {
+  list: PropTypes.array.isRequired,
+  id: PropTypes.string.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
+export default Sorts
+
+// CSS // _________________________________________________________________
 
 export const IconsDiv = styled.div`
   display: flex;

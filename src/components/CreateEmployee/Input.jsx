@@ -1,15 +1,18 @@
+// IMPORTS // ______________________________________________________________
+
+import React from 'react';
+import PropTypes from 'prop-types';
+// import functions
 import { capitalizeFirstLowercaseRest } from "../../utils/capitalizeFirstLowercaseRest";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 
+// JSX // _________________________________________________________________
+
 /**
- * Input component to display input buttons
+ * Input component to display input fields
  * @name Input
- * @param {string} charAndId
- * @param {string} inputType
- * @param {string} direction
- * @param {string} value
- * @param {string} onChange
+ * @param {object} props
  * @returns {?JSX}
  */
 
@@ -51,7 +54,25 @@ const Input = ({
   );
 };
 
+// PROPTYPES // ___________________________________________________________
+
+Input.propTypes = {
+  direction: PropTypes.string.isRequired,
+  charAndId: PropTypes.string.isRequired,
+  inputType: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
+  onChange: PropTypes.func.isRequired,
+  required: PropTypes.bool.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
 export default Input;
+
+// CSS // _________________________________________________________________
 
 const InputWrapper = styled.div`
   display: flex;

@@ -3,6 +3,14 @@ import WhLogo from "../../components/Logo/whLogo";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 
+// JSX // _________________________________________________________________
+
+/**
+ * Homepage component to display website's homepage
+ * @name Homepage
+ * @returns {?JSX}
+ */
+
 export default function Home() {
   return (
     <>
@@ -17,6 +25,8 @@ export default function Home() {
     </>
   );
 }
+
+// CSS // _________________________________________________________________
 
 export const Main = styled.main`
   display: flex;

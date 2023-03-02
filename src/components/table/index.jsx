@@ -1,9 +1,21 @@
-import React from "react";
+// IMPORTS // ______________________________________________________________
+
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
-
+// import components
 import TableBodyRow from "./TableBodyRow";
 import TableHeadRow from "./TableHeadRow";
+
+// JSX // _________________________________________________________________
+
+/**
+ * Table component to display HRnet tables
+ * @name Table
+ * @param {object} props 
+ * @returns {?JSX}
+ */
 
 const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
   return (
@@ -41,7 +53,19 @@ const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
   );
 };
 
-export default Table;
+// PROPTYPES // ___________________________________________________________
+
+Table.propTypes = {
+  keysToDisplay: PropTypes.array.isRequired,
+  list: PropTypes.array.isRequired,
+  listToDisplay: PropTypes.array.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
+export default Table
+
+// CSS // _________________________________________________________________
 
 const TableContainer = styled.div`
   overflow-x: auto;

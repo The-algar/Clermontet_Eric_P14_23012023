@@ -1,5 +1,10 @@
-import React, { useState } from "react";
+// IMPORTS // ______________________________________________________________
+
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+// import functions 
 import { standardizeAndLowerCase } from "../../utils/standardizeAndLowerCase";
+// import components
 import Entries from "./Entries";
 import EntriesDisplayed from "./EntriesDisplayed";
 import Pagination from "./Pagination";
@@ -7,6 +12,15 @@ import Search from "./Search";
 import Table from ".";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
+
+// JSX // _________________________________________________________________
+
+/**
+ * TableWithSortingandFilters component to display table, select entries, search input, sorting and pagination
+ * @name TableWithSortingandFilters
+ * @param {object} props
+ * @returns {?JSX}
+ */
 
 const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay }) => {
   const [search, setSearch] = useState("");
@@ -102,7 +116,19 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay }) => {
   );
 };
 
+// PROPTYPES // ___________________________________________________________
+
+TableWithSortingandFilters.propTypes = {
+  list: PropTypes.array.isRequired,
+  entriesNumber: PropTypes.array.isRequired,
+  keysToDisplay: PropTypes.array.isRequired,
+}
+
+// EXPORT // ______________________________________________________________
+
 export default TableWithSortingandFilters;
+
+// CSS // _________________________________________________________________
 
 const FiltersWrapper = styled.div`
   display: flex;

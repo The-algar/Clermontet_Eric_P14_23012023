@@ -1,8 +1,22 @@
-import React from "react";
+// IMPORTS // ______________________________________________________________
+
+import React from 'react';
+import PropTypes from 'prop-types';
+// import function 
 import { capitalizeFirstLowercaseRest } from "../utils/capitalizeFirstLowercaseRest";
+// import styles 
 import { InputLabel, InputWrapper } from "../components/CreateEmployee/Select";
 import styled from "styled-components";
 import colors from "../utils/style/colors";
+
+// JSX // _________________________________________________________________
+
+/**
+ * Select component to display dropdowns
+ * @name Select
+ * @param {object} props
+ * @returns {?JSX}
+ */
 
 const Select = ({
   direction,
@@ -35,7 +49,25 @@ const Select = ({
   );
 };
 
+// PROPTYPES // ___________________________________________________________
+
+Select.propTypes = {
+  direction: PropTypes.string.isRequired,
+  alignItems: PropTypes.string.isRequired,
+  forAndId: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
+  onChange: PropTypes.func.isRequired,
+  optionsList: PropTypes.array.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
 export default Select;
+
+// CSS // _________________________________________________________________
 
 const SelectStyle = styled.select`
   padding: 0.5rem 0.35rem;

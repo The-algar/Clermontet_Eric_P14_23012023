@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+// IMPORTS // ______________________________________________________________
+
+import React, { useState } from 'react';
+import { useStore } from "react-redux";
+import PropTypes from 'prop-types'
+// import components 
 import HeaderTabs from "../../components/CreateEmployee/HeaderTabs";
+import Select from "../../components/CreateEmployee/Select";
 import Input from "../../components/CreateEmployee/Input";
+// npm package import (modal)
+import { Modal } from 'oc-p14-simple-react-modale'
+// import firebase
+import { addAndGetEmployees } from "../../firebase/firebaseServices";
+// import data 
 import departments from "../../data/departments";
 import states from "../../data/states";
-import { addAndGetEmployees } from "../../firebase/firebaseServices";
-import { useStore } from "react-redux";
-import Select from "../../components/CreateEmployee/Select";
-// import Modale from "../../components/Modale";
-import { Modal } from 'oc-p14-simple-react-modale'
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
+
+// JSX // _________________________________________________________________
+
+/**
+ * CreateEmployee component to display Hrnet's create employee tab
+ * @name CreateEmployee
+ * @returns {?JSX}
+ */
 
 const CreateEmployee = () => {
   const [firstName, setFirstName] = useState("");
@@ -206,7 +220,22 @@ const CreateEmployee = () => {
   );
 };
 
+// PROPTYPES // ___________________________________________________________
+
+Modal.propTypes = {
+  hideModal: PropTypes.func.isRequired,
+  styleModalBackground: PropTypes.string.isRequired,
+  styleModal: PropTypes.string.isRequired,
+  styleModalContent: PropTypes.number.isRequired,
+  animation: PropTypes.bool.isRequired,
+  closeButton: PropTypes.bool.isRequired,
+}
+
+// EXPORT // ______________________________________________________________
+
 export default CreateEmployee;
+
+// CSS // _________________________________________________________________
 
 const Main = styled.main`
   background-color: ${colors.background};

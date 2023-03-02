@@ -1,6 +1,16 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
+
+// JSX // _________________________________________________________________
+
+/**
+ * Pagination component to display the number of pages
+ * @name Pagination
+ * @param {object} props 
+ * @returns {?JSX}
+ */
 
 const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
   // console.log(page)
@@ -68,7 +78,20 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
   );
 };
 
-export default Pagination;
+// PROPTYPES // ___________________________________________________________
+
+Pagination.propTypes = {
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  pageCountRange: PropTypes.array.isRequired,
+  pageCount: PropTypes.number.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
+export default Pagination
+
+// CSS // _________________________________________________________________
 
 export const DivPagination = styled.div`
   display: flex;

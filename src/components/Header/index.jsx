@@ -1,12 +1,19 @@
+// IMPORTS // ______________________________________________________________
+
 import React from "react";
 import Logo from "../Logo";
 import { Link } from "react-router-dom";
+//import styles
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 import LoginLogoutButton from "../Login";
 
-/**show Header
- * @returns {JSX}
+// JSX // _________________________________________________________________
+
+/**
+ * Header component to display HRnet's header
+ * @name Header
+ * @returns {?JSX}
  */
 
 export default function Header() {
@@ -29,6 +36,8 @@ export default function Header() {
     </HeaderWrapper>
   );
 }
+
+// CSS // _________________________________________________________________
 
 const HeaderWrapper = styled.header`
   background-color: ${colors.primary};

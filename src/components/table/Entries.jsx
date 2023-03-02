@@ -1,6 +1,18 @@
+// IMPORTS // ______________________________________________________________
+
 import React from "react";
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 import Select from "../Select";
+
+/**
+ * The "Entries" component displays a dropdown list for selecting the number of rows to show on the table.
+ * @name Entries
+ * @param {object} props 
+ * @returns {?JSX}
+ */
+
+// JSX // _________________________________________________________________
 
 const Entries = ({ value, onChange, entriesNumber }) => {
   return (
@@ -18,7 +30,22 @@ const Entries = ({ value, onChange, entriesNumber }) => {
   );
 };
 
-export default Entries;
+// PROPTYPES // ___________________________________________________________
+
+Entries.propTypes = {
+  value: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),  
+  onChange: PropTypes.func.isRequired,
+  entriesNumber: PropTypes.array.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
+export default Entries
+
+// CSS // _________________________________________________________________
 
 const EntriesStyle = styled.div`
   display: flex;
