@@ -4,7 +4,7 @@ import colors from './colors'
 export const GlobalStyle = createGlobalStyle`
 /* Styles principaux */
 * {
-    font-family: 'Roboto', Helvetica, sans-serif;
+    font-family: 'Baltazar', serif, 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
     color: ${colors.text};
     font-size: 16px;
     margin: 0;

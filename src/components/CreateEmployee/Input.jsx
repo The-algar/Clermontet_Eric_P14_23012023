@@ -56,11 +56,13 @@ const InputWrapper = styled.div`
 
 const InputLabel = styled.label`
   font-weight: bold;
+    font-family: Roboto !important;
   padding: .4rem .4rem .4rem 0;
   color: ${colors.text};
 `
 const InputStyle = styled.input`
   font-style: italic;
+    font-family: Roboto !important;
   padding: .5rem .35rem;
   border-radius: 0.25rem;
   border: 1px inset ${colors.background};

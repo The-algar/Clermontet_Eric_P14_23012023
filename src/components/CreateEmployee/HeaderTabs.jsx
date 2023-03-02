@@ -34,6 +34,7 @@ export const TabLink = styled(NavLink)`
     padding: 1rem;
     font-size: 1.3rem;
     text-align: center;
+    font-family: Roboto !important;
     font-weight: bold;
     background-color: ${colors.primary};
     border-radius: 0.25rem 0.25rem 0px 0px;
@@ -48,14 +49,6 @@ export const TabLink = styled(NavLink)`
       border-right: 2px inset #bfc8d3;
       border-bottom: none;
     }
-    // &.active:hover {
-    //   background-color: ${colors.primary};
-    //   color: ${colors.negativeTxt};
-    //   border-top: 2px inset #bfc8d3;
-    //   border-left: 2px inset #bfc8d3;
-    //   border-right: 2px inset #bfc8d3;
-    //   border-bottom: none;
-    // }
     &:hover {
       background-color: ${colors.secondary}
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/iconLogo.png';
+import Logo from '../Logo';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
@@ -14,9 +14,9 @@ export default function Header() {
       <HeaderWrapper>
         <NavContainer>
             <Link to="/">
-                <WHLogoImage src={Logo} alt="Wealth Health Logo"/>
+                <Logo src={Logo} width={100} height={100} alt="Wealth Health Icon"/>
                 <h1 className="sr-only">Wealth Health</h1>
-                <WHTitle>Wealth Health</WHTitle>
+                {/* <WHTitle>Wealth Health</WHTitle> */}
             </Link>
             <Link to="/">
                 <HRnetTitle>HRnet</HRnetTitle>
@@ -55,20 +55,8 @@ const NavContainer = styled.nav`
         gap: 1.5rem;
       }
   `
-const WHLogoImage = styled.img`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 90px;
-    max-width: 100%;
-`
-const WHTitle = styled.p`
-    font-size: 1em;
-    font-weight: bold;
-    padding-top: 3px;
-    margin: 0;
-`
 const HRnetTitle = styled.h3`
+    font-family= Balthazar !important;
     margin: 0px;
     font-weight: bold;
     font-size: 3em;

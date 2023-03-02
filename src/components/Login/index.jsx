@@ -41,6 +41,7 @@ export default LoginLogoutButton;
 
 const Button = styled.button`
   background-color: ${colors.secondary};
+  font-family: Roboto !important;
   font-size: 1em;
   font-weight: bold;
   color: white;

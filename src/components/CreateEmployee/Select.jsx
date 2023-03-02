@@ -1,5 +1,4 @@
 import React from 'react'
-// import { InputLabel, InputWrapper } from '../styles/components/input'
 import { capitalizeFirstLowercaseRest } from '../../utils/capitalizeFirstLowercaseRest'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
@@ -42,24 +41,11 @@ export const InputLabel = styled.label`
   padding: .4rem .4rem .4rem 0;
   color: ${colors.text};
 `
-// const InputStyle = styled.input`
-//   padding: .5rem .35rem;
-//   border-radius: 0.25rem;
-//   border: 1px inset ${colors.background};
-//   font-size: .9rem;
-//   height: auto;
-//   &:hover, 
-//   &:focus {
-//     background-color: rgba(206, 218, 151, 0.2);
-//   }
-//   &:focus-visible {
-//     outline: none;
-//   }
-// `
 const SelectStyle = styled.select`
   padding: .5rem .35rem;
   border-radius: 0.25rem;
   border: 1px inset ${colors.background};
+  font-family: Roboto !important;
   font-size: .9rem;
   background-color: white;
   height: auto;

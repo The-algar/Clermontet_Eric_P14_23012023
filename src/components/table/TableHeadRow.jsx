@@ -17,7 +17,7 @@ const TableHeadRow = ({ element, list, employeesToDisplay }) => {
 
 export default TableHeadRow
 
-export const ThDiv = styled.div`
+const ThDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

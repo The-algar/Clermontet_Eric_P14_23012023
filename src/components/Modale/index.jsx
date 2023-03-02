@@ -6,7 +6,7 @@ const Modale = ({hideModale}) => {
   return (
     <ModaleDiv>
       <ModaleContent>
-        <p>Employee Created !</p>
+        <TextModal>Employee Created!</TextModal>
         <IMG src={close} alt="close" onClick={hideModale} />
       </ModaleContent>
     </ModaleDiv>
@@ -31,6 +31,7 @@ const ModaleContent = styled.div`
   top: 40vh;
   padding: 1rem;
   border-radius: 0.8rem;
+  font-family: Roboto !important;
   text-align: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 `
@@ -48,4 +49,7 @@ const ModaleDiv = styled.div`
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.8);
   overflow: auto;
+`
+const TextModal = styled.p`
+  font-family: Roboto !important;
 `

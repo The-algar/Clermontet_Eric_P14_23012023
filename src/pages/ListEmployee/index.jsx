@@ -32,8 +32,7 @@ export default EmployeesList
 
 export const Main = styled.main`
   background-color: ${colors.background};
-  min-width: 1440px;
-  // height: 100%;
+  min-width: 80vw;
   margin: auto;
   margin-top: 2.5rem;
   line-height: 1;
@@ -41,4 +40,7 @@ export const Main = styled.main`
   border: 1px inset ${colors.secondary};
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0px 5px 20px rgb(100, 100, 100, 0.3);
+    @media (max-width: 425px) {
+    min-width: 400px !important;
+    }
 `

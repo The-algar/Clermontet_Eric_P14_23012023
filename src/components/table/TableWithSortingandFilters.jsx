@@ -71,7 +71,7 @@ const TableWithSortingandFilters = ({ list, entriesNumber, keysToDisplay}) => {
     {length !== 0 ? (
       <Table employeesToDisplay={employeesToDisplay} list={list} keysToDisplay={keysToDisplay}/>
     ) : (
-      <NoData>Oops! there is no data to display</NoData>
+      <NoData>No data available in table</NoData>
     )}
 
     <FiltersWrapper>
