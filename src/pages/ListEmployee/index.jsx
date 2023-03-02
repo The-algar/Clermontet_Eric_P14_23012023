@@ -27,6 +27,7 @@ const EmployeesList = () => {
   for (let i = 0; i < pageCount; i++) {
     pageCountRange.push(i)
   }
+  
   const employeesToDisplay = employees.slice(firstDataOnPage, lastDataOnPage)
   const handleChange = (e) => {
     setEntries(e.target.value)

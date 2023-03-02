@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
 const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
-  console.log(page)
-  console.log(pageCount)
-  console.log(pageCountRange)
+  // console.log(page)
+  // console.log(pageCount)
+  // console.log(pageCountRange)
 
   return (
     <DivPagination>
@@ -22,7 +22,7 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
       )}
 
       {pageCountRange.map((index) => {
-        if (page === pageCountRange[index + 1]) {
+        if ((page === pageCountRange[index + 1]) || (page -1 === pageCountRange[index])) {
           return (
             <ButtonNumber
               backgroundColor={colors.primary}
