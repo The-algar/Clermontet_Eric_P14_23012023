@@ -34,7 +34,7 @@ const HeaderWrapper = styled.header`
   background-color: ${colors.primary};
   z-index: 2;
   box-shadow: 0px 5px 20px rgb(100, 100, 100, 0.3);
-  min-width: 700px;
+  min-width: 450px;
 `
 const NavContainer = styled.nav`
   display: flex;

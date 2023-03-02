@@ -6,7 +6,6 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
   // console.log(page)
   // console.log(pageCount)
   // console.log(pageCountRange)
-
   return (
     <DivPagination>
       {page === 1 ? (
@@ -22,7 +21,10 @@ const Pagination = ({ setPage, page, pageCount, pageCountRange }) => {
       )}
 
       {pageCountRange.map((index) => {
-        if ((page === pageCountRange[index + 1]) || (page -1 === pageCountRange[index])) {
+        if (
+          page === pageCountRange[index + 1] ||
+          page - 1 === pageCountRange[index]
+        ) {
           return (
             <ButtonNumber
               backgroundColor={colors.primary}

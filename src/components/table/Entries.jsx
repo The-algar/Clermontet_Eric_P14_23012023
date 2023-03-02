@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Select from '../Select'
-import entriesQuantity from  '../../data/entriesQuantity'
 
-const Entries = ({ value, onChange }) => {
+const Entries = ({ value, onChange, entriesNumber }) => {
   return (
     <EntriesStyle>
       <Select
@@ -12,7 +11,7 @@ const Entries = ({ value, onChange }) => {
         charAndId={'show'}
         value={value}
         onChange={onChange}
-        optionsList={entriesQuantity}
+        optionsList={entriesNumber}
       />
       <EntriesText>entries</EntriesText>
     </EntriesStyle>

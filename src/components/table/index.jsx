@@ -1,44 +1,41 @@
 import React from 'react'
-import Sorts from './Sorts'
-import keys from '../../data/keys'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
-const Table = ({ employees }) => {
+import TableBodyRow from './TableBodyRow'
+import TableHeadRow from './TableHeadRow'
+
+const Table = ({ employeesToDisplay, list, keysToDisplay }) => {
   return (
     <TableContainer>
       <TableStyle>
         <thead>
           <TrHead>
-            {keys.map((element, index) => {
+            {keysToDisplay.map((element, index) => {
               return (
                 <th key={index}>
-                  <ThDiv>
-                    <p>{element.name}</p>
-                    <Sorts id={element.id} />
-                  </ThDiv>
+                  <TableHeadRow
+                    element={element}
+                    list={list}
+                    employeesToDisplay={employeesToDisplay}
+                  />
                 </th>
               )
             })}
           </TrHead>
         </thead>
-        <TBodyContainer>
-          {employees.map((employee, id) => {
+        <TBody>
+          {employeesToDisplay.map((employee, index) => {
             return (
-              <TBody key={id}>
-                <td>{employee.firstName}</td>
-                <td>{employee.lastName}</td>
-                <td>{employee.startDate}</td>
-                <td>{employee.department}</td>
-                <td>{employee.dateOfBirth}</td>
-                <td>{employee.street}</td>
-                <td>{employee.city}</td>
-                <td>{employee.state}</td>
-                <td>{employee.zipCode}</td>
-              </TBody>
+              <TrBody key={index}>
+                <TableBodyRow
+                  employee={employee}
+                  keysToDisplay={keysToDisplay}
+                />
+              </TrBody>
             )
           })}
-        </TBodyContainer>
+        </TBody>
       </TableStyle>
     </TableContainer>
   )
@@ -46,25 +43,19 @@ const Table = ({ employees }) => {
 
 export default Table
 
-export const TableContainer = styled.div`
+const TableContainer = styled.div`
   overflow-x: auto;
 `
-export const TableStyle = styled.table`
+const TableStyle = styled.table`
   width: 100%;
 `
-export const TrHead = styled.tr`
-  & > th {
-    padding: .4rem .6rem;
-    vertical-align: middle;
-    white-space: nowrap;
-  }
-`
-export const TBodyContainer = styled.tbody`
+const TBody = styled.tbody`
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 `
-export const TBody = styled.tr`
-  background-color: white;
+const TrBody = styled.tr`
+  background-color: ${colors.backgroundLight};
+
   &:nth-child(even) {
     background-color: rgba(206, 218, 151, 0.5);
   }
@@ -78,9 +69,12 @@ export const TBody = styled.tr`
     ${'' /* max-width: 8rem; */}
   }
 `
-export const ThDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
+const TrHead = styled.tr`
+  & > th {
+    padding: .4rem .6rem;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
 `
+
+

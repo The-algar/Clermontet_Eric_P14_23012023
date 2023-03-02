@@ -34,8 +34,7 @@ const keys = [
   {
     name: 'Zip Code',
     id: 'zipCode',
-  },
-
+  }
 ]
 
 export default keys

@@ -1,29 +1,6 @@
+import { capitalizeFirstLowercaseRest } from '../../utils/capitalizeFirstLowercaseRest'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-
-/**
- * Function capitalizeFirstLowercaseRest to capitalize label's first letter and lowercase the rest
- * @function
- * @name capitalizeFirstLowercaseRest
- * @param {string} string 
- * @returns {string}
- */
- export function capitalizeFirstLowercaseRest(string) {
-  if (!string) {
-    return '';
-  }
-
-  const regex = /-/gi 
-  const newString = string.replace(regex, ' ')
-  return newString
-    .toLowerCase()
-    .split(' ')
-    .map(word => {
-      return word[0].toUpperCase() + word.substring(1)
-    })
-    .join(' ')
-}
-
 
 /**
  * Input component to display input buttons
@@ -33,12 +10,11 @@ import colors from '../../utils/style/colors'
  * @param {string} direction
  * @param {string} value
  * @param {string} onChange
- * @param {string} required
  * @returns {?JSX}
  */
 
-const Input = ({ charAndId, inputType, direction, value, onChange, required }) => {
-
+const Input = ({ charAndId, inputType, direction, value, onChange, required,}) => {
+  
   let placeholder;
   if (charAndId === 'first-name') {
     placeholder = "Enter your First Name";
@@ -68,21 +44,22 @@ const Input = ({ charAndId, inputType, direction, value, onChange, required }) =
     </InputWrapper>
   )
 }
+
 export default Input
 
-export const InputWrapper = styled.div`
+const InputWrapper = styled.div`
   display: flex;
   flex-direction: ${(props) => props.direction};
   justify-content: left;
   padding: .4rem 0;
 `
 
-export const InputLabel = styled.label`
+const InputLabel = styled.label`
   font-weight: bold;
   padding: .4rem .4rem .4rem 0;
   color: ${colors.text};
 `
-export const InputStyle = styled.input`
+const InputStyle = styled.input`
   font-style: italic;
   padding: .5rem .35rem;
   border-radius: 0.25rem;

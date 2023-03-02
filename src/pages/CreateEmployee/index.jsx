@@ -202,14 +202,15 @@ export default CreateEmployee
 
 
 const Main = styled.main`
-  background-color: #eeeeee;
-  max-width: 1440px;
+  background-color: ${colors.background};
+  min-width: 1440px;
+  height: 100vh;
   margin: auto;
   margin-top: 2.5rem;
   line-height: 1;
   padding: 1rem 1.5rem;
-  border: 1px inset ${colors.background};
-  border-radius: 0.25rem;
+  border: 1px inset ${colors.secondary};
+  border-radius: 0px 0px 5px 5px;
   box-shadow: 0px 5px 20px rgb(100, 100, 100, 0.3);
 `
 const Form = styled.form`

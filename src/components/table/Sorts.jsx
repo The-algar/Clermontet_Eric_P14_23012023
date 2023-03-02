@@ -1,63 +1,26 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { dynamicSortDown } from '../../utils/dynamicSortDown'
+import { dynamicSortUp } from '../../utils/dynamicSortUp'
 import { employeesListSuccess } from '../../Redux/actions/actionGetEmployees'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
-const dateRegex = /[0-9]{4}-[0-9]{2}-[0-9]{2}/
-
-function dynamicSortUp(property) {
-  return function compare(a, b) {
-    if (dateRegex.test(a[property]) === true) {
-      let dateA = new Date(a[property])
-      let dateB = new Date(b[property])
-      return dateA < dateB ? -1 : dateA === dateB ? 0 : 1
-    } else {
-      let stringA = a[property].split(' ').join('')
-      a = stringA.toLowerCase()
-      let stringB = b[property].split(' ').join('')
-      b = stringB.toLowerCase()
-      return a < b ? -1 : a === b ? 0 : 1
-    }
-  }
-}
-
-function dynamicSortDown(property) {
-  return function compare(a, b) {
-    if (dateRegex.test(a[property]) === true) {
-      let dateA = new Date(a[property])
-      let dateB = new Date(b[property])
-      return dateA < dateB ? 1 : dateA === dateB ? 0 : -1
-    } else {
-      let stringA = a[property].split(' ').join('')
-      a = stringA.toLowerCase()
-      let stringB = b[property].split(' ').join('')
-      b = stringB.toLowerCase()
-      return a < b ? 1 : a === b ? 0 : -1
-    }
-  }
-}
-
-const Sorts = ({ id }) => {
-  const employees = useSelector((state) => state.getEmployees.employees)
+const Sorts = ({ id, list }) => {
   const dispatch = useDispatch()
 
   const handleClickUp = (e) => {
     e.preventDefault()
     const fullId = e.target.id
     const id = fullId.split('-')[0]
-    const newEmmployeesList = Array.from(employees).sort(
-      dynamicSortUp(`${id}`)
-    )
+    const newEmmployeesList = Array.from(list).sort(dynamicSortUp(`${id}`))
     dispatch(employeesListSuccess(newEmmployeesList))
   }
   const handleClickDown = (e) => {
     e.preventDefault()
     const fullId = e.target.id
     const id = fullId.split('-')[0]
-    const newEmmployeesList = Array.from(employees).sort(
-      dynamicSortDown(`${id}`)
-    )
+    const newEmmployeesList = Array.from(list).sort(dynamicSortDown(`${id}`))
     dispatch(employeesListSuccess(newEmmployeesList))
   }
 

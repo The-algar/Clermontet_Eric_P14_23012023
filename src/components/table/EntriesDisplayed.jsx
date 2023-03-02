@@ -13,11 +13,13 @@ const EntriesDisplayed = ({
     <div>
       {page > fullPages ? (
         <p>
-          Showing <Span>{firstDataOnPage + 1}</Span> to <Span>{length}</Span> of <Span>{length}</Span> entries
+          Showing <Span>{firstDataOnPage + 1}</Span> to <Span>{length}</Span> of{' '}
+          <Span>{length}</Span> entries
         </p>
       ) : (
         <p>
-          Showing <Span>{firstDataOnPage + 1}</Span> to <Span>{lastDataOnPage}</Span> of <Span>{length}</Span> entries
+          Showing <Span>{firstDataOnPage + 1}</Span> to{' '}
+          <Span>{lastDataOnPage}</Span> of <Span>{length}</Span> entries
         </p>
       )}
     </div>
@@ -26,7 +28,7 @@ const EntriesDisplayed = ({
 
 export default EntriesDisplayed
 
-export const Span = styled.span`
+const Span = styled.span`
   font-weight: bold;
   color: ${colors.text};
   font-size: 1.1rem;

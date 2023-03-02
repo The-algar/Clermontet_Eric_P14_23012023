@@ -15,14 +15,17 @@ export default function Home() {
     )
 }
 
-const Main = styled.main`
+export const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  min-width: 700px !important;
+  padding: 1rem 1.5rem;
   background-color: ${colors.mainBgColor};
+  @media (max-width: 425px) {
+    min-width: 400px !important;
+  }
 `
 const LoginCard = styled.div`
     display: flex;
