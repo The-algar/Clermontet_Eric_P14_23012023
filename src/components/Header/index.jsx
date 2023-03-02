@@ -1,10 +1,6 @@
 import React from 'react';
-// import Logo from '../../assets/whLogo.png';
 import Logo from '../../assets/iconLogo.png';
-// import { Burger } from './Burger'
 import { Link } from 'react-router-dom';
-// import { StyledLink } from '../../utils/style/Slinks'
-// import { Button } from '@mui/material';
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import LoginLogoutButton from '../Login'

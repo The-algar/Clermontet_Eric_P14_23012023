@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+// import CreateEmployee from './pages/CreateEmployee'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 
@@ -27,7 +28,7 @@ function LoginLogoutButton() {
         if (isLoggedIn) {
           navigate('/');
         } else {
-          navigate('/CreateEmployee');
+          navigate('/Create');
         }
       }}>
         {isLoggedIn ? 'Logout' : 'Login'}

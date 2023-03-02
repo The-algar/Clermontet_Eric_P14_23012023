@@ -5,7 +5,7 @@ import colors from '../../utils/style/colors'
 
 const Main = styled.main`
   display: flex;
-//   height: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -32,6 +32,11 @@ const LoginCard = styled.div`
 const HpLogo = styled.img`
     height: 200px;
 `
+const Claim = styled.h2`
+    padding-top: 2rem;
+    font-weight: bold;
+`
+
 export default function Home() {
     return (
         <Main>
@@ -39,6 +44,7 @@ export default function Home() {
                 <HpLogo src={Logo} alt="logo_wealth" />
                 <p>Welcome to  HRnet</p>
             </LoginCard>
+            <Claim>This is our company's internal application to create and view employee records.</Claim>
         </Main>
     )
 };
