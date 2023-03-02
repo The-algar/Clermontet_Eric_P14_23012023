@@ -19,13 +19,16 @@ export const GlobalStyle = createGlobalStyle`
 }
   body {
     background-color: ${colors.background};
-    max-width: 1440px;
+    // max-width: 1440px;
+    // height: 100%;
+    overflow-y: hidden;
+    width: 100vw;
     margin: auto;
-    padding: 0 7%;
+    // padding: 0 7%;
     line-height: 1;
   }
   img {
-    width: 100%;
+    // width: 100%;
     object-fit: cover;
     box-sizing: border-box;
   }
@@ -58,9 +61,9 @@ export const GlobalStyle = createGlobalStyle`
   q:before, q:after {
     content: '';
     content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-`
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  `

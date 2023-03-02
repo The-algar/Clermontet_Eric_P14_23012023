@@ -2,8 +2,8 @@ import React from 'react'
 // import './Error.css';
 // import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-import { ErrorBtn } from '../utils/style/Slinks'
-import colors from '../utils/style/colors'
+import { ErrorBtn } from '../../utils/style/Slinks'
+import colors from '../../utils/style/colors'
 
 
 /** 
@@ -34,7 +34,11 @@ export default Error
 const ErrorWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   background-color: ${colors.backgroundLight};
+  height: 100vh;
+  min-width: 700px;
+  align-content: center;
   align-items: center;
   margin:0!important;
   padding: 0 !important;
@@ -42,7 +46,7 @@ const ErrorWrapper = styled.div`
 const Big404 = styled.h1`
   font-weight: 700;
   font-size: 288px;
-  color: ${colors.secondary};
+  color: ${colors.error};
   margin:0!important;
   padding-top: 169px !important;
     @media screen and (max-width: 768px) {
