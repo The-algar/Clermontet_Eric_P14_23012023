@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 import HeaderTabs from "../../components/CreateEmployee/HeaderTabs";
 import Select from "../../components/CreateEmployee/Select";
 import Input from "../../components/CreateEmployee/Input";
+import sortDepartments from "../../utils/form/sortDepartments";
 // npm package import (modal)
 import { Modal } from 'oc-p14-simple-react-modale'
 // import firebase
@@ -36,15 +37,15 @@ const CreateEmployee = () => {
   const [zipCode, setZipCode] = useState("");
   const [department, setDepartment] = useState("");
 
-  function sortDepartments(x, y) {
-    if (x.label < y.label) {
-      return -1;
-    }
-    if (x.label > y.label) {
-      return 1;
-    }
-    return 0;
-  }
+  // function sortDepartments(x, y) {
+  //   if (x.label < y.label) {
+  //     return -1;
+  //   }
+  //   if (x.label > y.label) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
   const departmentsSorted = departments.sort(sortDepartments);
   const USAStates = states;
   const [modaleIsOpen, setModaleIsOpen] = useState(false);
