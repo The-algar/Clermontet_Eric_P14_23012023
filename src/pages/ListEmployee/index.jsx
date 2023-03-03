@@ -30,9 +30,8 @@ const EmployeesList = () => {
   return (
     <Main>
       <HeaderTabs />
-      <h2 className="sr-only">Current employees</h2>
       <section>
-        <h2 className="sr-only">Current employees</h2>
+        <h2 className="sr-only">List employees</h2>
         {isLoading ? (
         <Loader />
       ) : (
