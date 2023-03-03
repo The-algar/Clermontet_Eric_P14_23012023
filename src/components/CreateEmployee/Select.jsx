@@ -1,28 +1,34 @@
-import React from "react";
+// IMPORTS // ______________________________________________________________
+
+import React from 'react';
+import PropTypes from 'prop-types';
+// import function
 import { capitalizeFirstLowercaseRest } from "../../utils/capitalizeFirstLowercaseRest";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 
-const Select = ({
-  direction,
-  alignItems,
-  charAndId,
-  value,
-  onChange,
-  optionsList,
-}) => {
+// JSX // _________________________________________________________________
+
+/**
+ * Select component to display select dropdowns
+ * @name Select
+ * @param {object} props
+ * @returns {?JSX}
+ */
+
+const Select = (props) => {
   return (
-    <InputWrapper direction={direction} alignItems={alignItems}>
-      <InputLabel htmlFor={charAndId}>
-        {capitalizeFirstLowercaseRest(charAndId)}
+    <InputWrapper direction={props.direction} alignItems={props.alignItems}>
+      <InputLabel htmlFor={props.charAndId}>
+        {capitalizeFirstLowercaseRest(props.charAndId)}
       </InputLabel>
       <SelectStyle
-        name={charAndId}
-        id={charAndId}
-        value={value}
-        onChange={onChange}
+        name={props.charAndId}
+        id={props.charAndId}
+        value={props.value}
+        onChange={props.onChange}
       >
-        {optionsList.map((option, index) => {
+        {props.optionsList.map((option, index) => {
           return (
             <option key={index} value={option.value}>
               {option.label}
@@ -34,7 +40,23 @@ const Select = ({
   );
 };
 
-export default Select;
+// PROPTYPES // ___________________________________________________________
+
+Select.propTypes = {
+  direction: PropTypes.string.isRequired,
+  alignItems: PropTypes.string.isRequired,
+  charAndId: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
+  onChange: PropTypes.func.isRequired,
+  optionsList: PropTypes.array.isRequired
+}
+
+// EXPORT // ______________________________________________________________
+
+export default Select
 
 export const InputWrapper = styled.div`
   display: flex;

@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import HeaderTabs from "../../components/CreateEmployee/HeaderTabs";
 import TableWithSortingandFilters from "../../components/table/TableWithSortingandFilters";
 import entriesQuantity from "../../data/entriesQuantity";
+import Loader from '../../components/Loader'
 import keys from "../../data/keys";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
@@ -18,12 +19,13 @@ import colors from "../../utils/style/colors";
  */
 
 const EmployeesList = () => {
-  let data;
-  data = useSelector((state) => state.getEmployees.employees);
-  let entries;
-  entries = entriesQuantity;
-  let keysToDisplay;
-  keysToDisplay = keys;
+  let data, entries, keysToDisplay
+
+  data = useSelector((state) => state.getEmployees.employees)
+  entries = entriesQuantity
+  keysToDisplay = keys
+
+  const isLoading = useSelector((state) => state.getEmployees.isLoading)
 
   return (
     <Main>
@@ -31,11 +33,15 @@ const EmployeesList = () => {
       <h2 className="sr-only">Current employees</h2>
       <section>
         <h2 className="sr-only">Current employees</h2>
+        {isLoading ? (
+        <Loader />
+      ) : (
         <TableWithSortingandFilters
           list={data}
           entriesNumber={entries}
           keysToDisplay={keysToDisplay}
         />
+      )}
       </section>
     </Main>
   );

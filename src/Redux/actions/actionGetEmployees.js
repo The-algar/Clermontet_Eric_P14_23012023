@@ -1,6 +1,6 @@
 // IMPORTS // ______________________________________________________________
 
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit'
 
 // ACTIONS // ______________________________________________________________
 
@@ -9,24 +9,20 @@ import { createAction } from "@reduxjs/toolkit";
  * @reduxAction
  */
 
-export const employeesListLoading = createAction(
-  "firebase-employees-list-loading"
-);
+export const employeesListLoading = createAction('firebase-employees-list-loading')
 
 export const employeesListSuccess = createAction(
-  "firebase-employees-list-success",
+  'firebase-employees-list-success',
   (employees) => {
     return {
       payload: employees,
-    };
+    }
   }
-);
+)
 
 export const employeesListError = createAction(
-  "firebase-employees-list-error",
-  (error) => {
-    return {
-      payload: error,
-    };
+  'firebase-employees-list-error', (error) => {
+  return {
+    payload: error,
   }
-);
+})

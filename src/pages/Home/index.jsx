@@ -7,7 +7,7 @@ import colors from "../../utils/style/colors";
 
 /**
  * Homepage component to display website's homepage
- * @name Homepage
+ * @name Home
  * @returns {?JSX}
  */
 
